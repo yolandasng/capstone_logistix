@@ -7,8 +7,17 @@ def login_page():
     st.markdown("---")
     
     col1, col2 = st.columns([1, 2])
+
     with col1:
-        st.image("static/login_illustration.png", width=200)  # Add your image
+        st.image("static/login_illustration.png", width=400)
+    st.markdown(
+        """
+        <div style="display: flex; justify-content: center;">
+            <img src="static/login_illustration.png" width="400">
+        </div>
+        """, 
+        unsafe_allow_html=True
+    )    
     
     with col2:
         st.header("Login")
