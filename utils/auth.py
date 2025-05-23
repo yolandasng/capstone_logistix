@@ -4,7 +4,7 @@ import sqlite3
 
 DB_PATH = os.path.join("data", "users.db")
 
-def authenticate(username, password):
+def auth(username, password):
     """Autentikasi user sederhana"""
     if not username.strip() or not password.strip():
         return "empty"

@@ -1,5 +1,5 @@
 import streamlit as st
-from auth import authenticate
+from utils.auth import auth
 
 def login_page():
     """Render the login page."""
@@ -26,7 +26,7 @@ def login_page():
         password = st.text_input("Password", type="password", key="login_password")
         
         if st.button("Login", type="primary"):
-            result = authenticate(username, password)
+            result = auth(username, password)
             
             if result == "empty":
                 st.warning("Please enter both username and password.")

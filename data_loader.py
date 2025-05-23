@@ -18,16 +18,21 @@ def initialize_data():
     try:
         os.makedirs(DATA_DIR, exist_ok=True)
         
+        # Debug: Cek file CSV
         if not os.path.exists(CSV_FILE):
-            st.error(f"File data tidak ditemukan di: {CSV_FILE}")
+            st.error(f"File CSV tidak ditemukan di: {CSV_FILE}")
+            print(f"File CSV tidak ditemukan di: {CSV_FILE}")
             return False
 
+        # Load CSV
         df = pd.read_csv(CSV_FILE)
+        print("Data CSV berhasil dimuat. Contoh data:")
+        print(df.head())
         
         # Pembersihan data
         df['harga_satuan'] = df['harga_satuan'].apply(clean_currency)
         df['jumlah'] = df['jumlah'].apply(clean_currency)
-        df['tanggal'] = pd.to_datetime(df['tanggal'])
+        df['tanggal'] = pd.to_datetime(df['tanggal'], format='%Y-%m-%d')
         
         # Filter produk
         produk_pilihan = [
