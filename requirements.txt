@@ -1,6 +1,9 @@
 streamlit
+pandas
+numpy
+catboost
+gdown
+scikit-learn
 matplotlib
 seaborn
-numpy
-pandas
-python-dotenv
+sqlite3
